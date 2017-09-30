@@ -1,2 +1,2 @@
 # edumatch
-EduHacks 2017
+EduHacks 2017 project!
