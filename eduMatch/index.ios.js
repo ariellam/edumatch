@@ -9,7 +9,9 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Button,
+  Alert
 } from 'react-native';
 
 export default class eduMatch extends Component {
@@ -17,15 +19,10 @@ export default class eduMatch extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+          <Button onPress={() => Alert.alert('Login')} title="Login" color="#FFFFFF" accessibilityLabel="Tap on Me"/>
+          <Button onPress={() => Alert.alert('Sign up')} title="Sign Up" color="#FFFFFF" accessibilityLabel="Tap on Me"/>
       </View>
     );
   }
@@ -36,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#0F88D8',
   },
   welcome: {
     fontSize: 20,
