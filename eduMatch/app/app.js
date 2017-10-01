@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
+
 import {
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
+import Login from './views/Login.js';
+import secured from './views/Secured.js';
+
 export default class app extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to eduMatch!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started,
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
+  state = {
+    isLoggedIn: false
   }
+  render() {
+
+    }
 }
 
 const styles = StyleSheet.create({
