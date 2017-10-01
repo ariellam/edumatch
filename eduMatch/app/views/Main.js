@@ -12,16 +12,17 @@ export default class extends Component {
   static navigationOptions = {
     header: null
   }
+  state = {backgroundColor: BLUE}
   render() {
     return(
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: this.state.backgroundColor}]}>
         <View style={{height: 61, flexDirection: 'row'}}>
-          <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: BLUE }}>
-            <Text style={{color: 'white', fontSize: 26}}  children='Student'/>
+          <TouchableOpacity style={styles.studentButton } onPress={() => this.setState({backgroundColor: BLUE})}>
+            <Text style={styles.studentButtonText}  children='Student'/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: ORANGE}}>
-            <Text style={{color: 'white', fontSize: 26}}  children='Mentor'/>
+          <TouchableOpacity  onPress={() => this.setState({backgroundColor: ORANGE})} style={styles.mentorButton}>
+            <Text style={styles.studentButtonText} children='Mentor'/>
           </TouchableOpacity>
         </View>
 
@@ -29,19 +30,19 @@ export default class extends Component {
             <View style={{alignItems: 'center'}}>
             <View style={{width: 134, height: 134, backgroundColor: 'white'}}/>
             <Text style={{fontFamily: 'Avenir', color:'white', fontSize: 60}} >EduMatch</Text>
-</View>
+          </View>
             <View style={{flex: 1, justifyContent: 'center'}}>
-              <TouchableOpacity style={{marginHorizontal: 55, height: 82, backgroundColor: 'white', borderRadius: 16, alignItems: 'center', justifyContent: 'center', marginBottom: 28}}>
+              <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Login')}>
                 <Text style={{color: BLUE, fontSize: 26}} children='Login'/>
               </TouchableOpacity>
-              <TouchableOpacity style={{marginHorizontal: 55, height: 82, backgroundColor: 'white', borderRadius: 16, alignItems: 'center', justifyContent: 'center'}}>
+              <TouchableOpacity style={styles.signupButton} onPress={() => this.props.navigation.navigate('Signup')}>
                 <Text style={{color: BLUE, fontSize: 26}} children='Sign Up'/>
               </TouchableOpacity>
             </View>
 
           </View>
 
-        <Text>Main</Text>
+
       </View>
     )
   }
@@ -50,7 +51,40 @@ export default class extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: BLUE,
     paddingTop:20
+  },
+  studentButton: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: BLUE
+  },
+  studentButtonText: {
+    color: 'white',
+    fontSize: 26,
+
+  },
+  mentorButton: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: ORANGE,
+  },
+  loginButton: {
+    marginHorizontal: 55,
+    height: 82,
+    backgroundColor: 'white',
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 28,
+  },
+  signupButton: {
+    marginHorizontal: 55,
+    height: 82,
+    backgroundColor: 'white',
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 })

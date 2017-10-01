@@ -1,18 +1,34 @@
 import React, {Component} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {ScrollView, TextInput, View, Text, StyleSheet, TouchableOpacity} from 'react-native'
+const BLUE = '#3EB2FF'
+const ORANGE = '#FF9539'
+const RED = '#FE0101'
 
-export default class extends Component {
-  // async componentDidMount() {
-  //   await new Promise(r=>setTimeout(r, 3000))
-  //   this.props.navigation.navigate('Signup')
-  // }
-  static navigationOptions = {
-    title: 'Student'
-  }
+export default class Login extends Component {
+
+
+  //states to change color and title depending type of user
+
+
   render() {
     return(
       <View style={styles.container}>
-        <Text>Login</Text>
+
+        <View style={styles.username}>
+          <TextInput placeholder="Username" />
+        </View>
+
+        <View style={styles.password}>
+          <TextInput placeholder="Password" />
+        </View>
+
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <TouchableOpacity style={styles.loginButton} onPress={() => this.props.navigation.navigate('Profile')}>
+            <Text style={{color: ORANGE, fontSize: 26}} children='Login'/>
+          </TouchableOpacity>
+        </View>
+
+
       </View>
     )
   }
@@ -21,6 +37,26 @@ export default class extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3EB2FF'
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: BLUE,
+    padding: 20,
+  },
+
+  username: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 250,
+
+
+
+  },
+  password: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 50,
+    
+
+  },
+
 })
